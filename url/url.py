@@ -1,0 +1,1 @@
+URL = "https://news.detik.com/indeks"
