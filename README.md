@@ -5,14 +5,20 @@
 ![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-Web%20Scraping-green)
 ![Requests](https://img.shields.io/badge/Requests-HTTP-orange)
 
+---
+
 ### Business Understanding
 
 Project ini menggunakan teknik **web scraping** dengan Python untuk mengambil data artikel berita dari website **Detik News** selama 8 hari terakhir.
 Proses scraping dilakukan menggunakan library `requests` untuk mengambil HTML dari website dan `BeautifulSoup` untuk membaca serta mengekstrak data dari struktur HTML tersebut.
 
+---
+
 ### Architecture
 
-![Architectur](image/architectur.png)
+## ![architectur](image/architectur.png)
+
+---
 
 ### Extracting Data from HTML
 
@@ -23,12 +29,16 @@ Proses scraping dilakukan menggunakan library `requests` untuk mengambil HTML da
 - **Load**  
   Menyimpan data hasil scraping ke database SQLite pada tabel `news_articles`.
 
+---
+
 ### Extracting Data from HTML
 
 Folder `database` digunakan untuk menyimpan proses yang berhubungan dengan query dan tampilan data dari database SQLite.
 
 - `query_data.py`  
   Berisi SQL query untuk mengambil artikel berita yang dipublikasikan dalam 7 hari terakhir dari tabel `news_articles`.
+
+---
 
 ### Handling Scraping Challenges
 
@@ -47,6 +57,8 @@ Folder `database` digunakan untuk menyimpan proses yang berhubungan dengan query
 - `Mematuhi robots.txt` → Mengikuti aturan scraping yang ditetapkan website.
 - `Menggunakan Selenium atau Playwright` → Digunakan untuk website yang menggunakan JavaScript rendering.
 - `Menghindari scraping berlebihan` → Melakukan scraping secara wajar agar tidak terdeteksi sebagai aktivitas mencurigakan.
+
+---
 
 ### Run Program
 
