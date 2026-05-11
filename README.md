@@ -9,8 +9,8 @@
 
 ### Business Understanding
 
-Project ini menggunakan teknik **web scraping** dengan Python untuk mengambil data artikel berita dari website **Detik News** selama 8 hari terakhir.
-Proses scraping dilakukan menggunakan library `requests` untuk mengambil HTML dari website dan `BeautifulSoup` untuk membaca serta mengekstrak data dari struktur HTML tersebut.
+- This project uses **web scraping** techniques with Python to collect news article data from the **Detik News** website over the last 8 days.
+- The scraping process uses the `requests` library to retrieve HTML content from the website and `BeautifulSoup` to parse and extract data from the HTML structure.
 
 ---
 
@@ -20,43 +20,39 @@ Proses scraping dilakukan menggunakan library `requests` untuk mengambil HTML da
 
 ---
 
-### Extracting Data from HTML
+### ETL Process
 
-- **Extract**  
-  Mengambil HTML dari halaman indeks berita Detik dan mengekstrak data seperti judul berita, URL artikel, dan tanggal publish.
-- **Transform**  
-  Membersihkan dan memvalidasi data hasil scraping sebelum disimpan ke database.
-- **Load**  
-  Menyimpan data hasil scraping ke database SQLite pada tabel `news_articles`.
+- **Extract** → Retrieves HTML content from the Detik News index page and extracts data such as news titles, article URLs, and publish dates.
+- **Transform** → Cleans and validates the scraped data before storing it in the database.
+- **Load** → Stores the scraped data into an SQLite database in the `news_articles` table.
 
 ---
 
-### Extracting Data from HTML
+### Database Folder
 
-Folder `database` digunakan untuk menyimpan proses yang berhubungan dengan query dan tampilan data dari database SQLite.
+The `database` folder is used to store processes related to querying and displaying data from the SQLite database.
 
-- `query_data.py`  
-  Berisi SQL query untuk mengambil artikel berita yang dipublikasikan dalam 7 hari terakhir dari tabel `news_articles`.
+- `query_data.py` Contains SQL queries to retrieve news articles published within the last 7 days from the `news_articles` table.
 
 ---
 
 ### Handling Scraping Challenges
 
-#### Cara umum website mencegah web scraping
+#### Common ways websites prevent web scraping
 
-- `Rate Limiting` → Website membatasi terlalu banyak request dari IP yang sama dalam waktu singkat.
-- `CAPTCHA` → Digunakan untuk membedakan antara manusia dan bot.
-- `IP Blocking` → IP yang dianggap mencurigakan dapat diblokir oleh website.
-- `User-Agent Detection` → Request tanpa header browser biasanya akan terdeteksi sebagai bot.
-- `Dynamic Content` → Beberapa website menggunakan JavaScript sehingga data tidak langsung muncul saat di-scrape.
+- `Rate Limiting` → Websites limit too many requests from the same IP address within a short period.
+- `CAPTCHA` → Used to distinguish between humans and bots.
+- `IP Blocking` → Suspicious IP addresses may be blocked by the website.
+- `User-Agent Detection` → Requests without browser headers can be detected as bots.
+- `Dynamic Content` → Some websites use JavaScript, so data does not appear directly during scraping.
 
-#### Cara menghindari pemblokiran saat scraping
+#### How to avoid getting blocked while scraping
 
-- `Menggunakan User-Agent` → Agar request terlihat seperti browser normal.
-- `Memberikan delay antar request` → Menghindari terlalu banyak request dalam waktu singkat.
-- `Mematuhi robots.txt` → Mengikuti aturan scraping yang ditetapkan website.
-- `Menggunakan Selenium atau Playwright` → Digunakan untuk website yang menggunakan JavaScript rendering.
-- `Menghindari scraping berlebihan` → Melakukan scraping secara wajar agar tidak terdeteksi sebagai aktivitas mencurigakan.
+- `Use User-Agent headers` → Makes requests look like normal browser traffic.
+- `Add delays between requests` → Prevents sending too many requests in a short time.
+- `Respect robots.txt` → Follows the scraping rules defined by the website.
+- `Use Selenium or Playwright` → Useful for websites that use JavaScript rendering.
+- `Avoid excessive scraping` → Perform scraping responsibly to reduce blocking risk.
 
 ---
 
