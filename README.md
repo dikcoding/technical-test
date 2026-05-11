@@ -16,7 +16,7 @@ Proses scraping dilakukan menggunakan library `requests` untuk mengambil HTML da
 
 ### Architecture
 
-## ![architectur](image/architectur.png)
+![architecture](image/architecture.png)
 
 ---
 
