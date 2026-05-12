@@ -1,6 +1,5 @@
 import sqlite3
-
-DB_NAME = "detik.db"
+from etl.load import DB_NAME
 
 def query_last_7_days():
     conn = sqlite3.connect(DB_NAME)
